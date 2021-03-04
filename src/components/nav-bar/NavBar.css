@@ -1,0 +1,10 @@
+.navbar{
+    display:flex;
+    background-color: silver;
+    height: 100px;
+    align-items: center;
+}
+
+.navbar-collapse{
+    height: 100px;
+}
