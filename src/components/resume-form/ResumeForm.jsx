@@ -16,9 +16,13 @@ function ResumeForm(props) {
 
     const [educationCount, setEducationCount] = useState(1);
     const [experienceCount, setExperienceCount] = useState(1);
-    const [customDiv, setCustomDiv] = useState(['div1']);
+    // const [customDiv, setCustomDiv] = useState(['div1']);
 
-
+    // const addNewRow = () => {
+    //     let cDivs = [...customDiv];
+    //     cDivs.push('newDiv')
+    //     setCustomDiv({ customDiv: cDivs })
+    // }
 
     return (
         <div className="form-container">
@@ -61,16 +65,16 @@ function ResumeForm(props) {
                 </Form.Group>
 
                 <Form.Group id="multipleInputContainer" controlId="formBasicExperience">
-
-                    <div>
-                        <Form.Label>Previous Experience {experienceCount}</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Company Name" />
-                        <Form.Control type="text" placeholder="Enter Number of Year" />
-                        <Form.Control type="text" placeholder="Enter Designation" />
-                    </div> 
+                    {/* {console.log(customDiv)}  */}
+                    {/* {customDiv.map((cdiv, i) => { */}
+                    < Form.Label > Previous Experience {experienceCount}</Form.Label>
+                    <Form.Control type="text" placeholder="Enter Company Name" />
+                    <Form.Control type="text" placeholder="Enter Number of Year" />
+                    <Form.Control type="text" placeholder="Enter Designation" />
                     <button id="add-button" onClick={(e) => {
                         e.preventDefault()
                         setExperienceCount(experienceCount + 1)
+                        // addNewRow()
                         console.log(experienceCount)
                     }
                     }>Add another company</button>
@@ -81,9 +85,9 @@ function ResumeForm(props) {
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
-                </Button>
+</Button>
             </Form>
-        </div>
+        </div >
     )
 }
 
