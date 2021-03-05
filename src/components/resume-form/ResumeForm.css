@@ -10,3 +10,17 @@
     
 }
 
+#add-button{
+    float: right;
+}
+#formBasicEducation{
+    margin-bottom: 20px;
+}
+
+#formBasicExperience{
+    margin-bottom: 20px;
+}
+
+#multipleInputContainer{
+    margin-bottom: 50px;
+}

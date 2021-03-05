@@ -6,38 +6,44 @@ import {UPDATE_USER_EDUCATION} from "./ContentTypes"
 import {UPDATE_USER_EXPERIENCE} from "./ContentTypes"
 
 
-export const updateUserName = () => {
+export const updateUserName = (payload) => {
     return {
         type: UPDATE_USER_NAME,
+        payload,
     }
 }
 
-export const updateUserEmail = () => {
+export const updateUserEmail = (payload) => {
     return {
         type: UPDATE_USER_EMAIL,
+        payload,
     }
 }
 
-export const updateUserAddress = () => {
+export const updateUserAddress = (payload) => {
     return {
         type: UPDATE_USER_ADDRESS,
+        payload,
     }
 }
 
-export const updateUserPhoneNumber = () => {
+export const updateUserPhoneNumber = (payload) => {
     return {
         type: UPDATE_USER_PHONE_NUMBER,
+        payload,
     }
 }
 
-export const updateUserEducation = () => {
+export const updateUserEducation = (payload) => {
     return {
         type: UPDATE_USER_EDUCATION,
+        payload
     }
 }
 
-export const updateUserExperience = () => {
+export const updateUserExperience = (payload) => {
     return {
         type: UPDATE_USER_EXPERIENCE,
+        payload,
     }
 }

@@ -1,4 +1,9 @@
-import {UPADTE_CONTENT} from "./ContentTypes"
+import {UPDATE_USER_NAME} from "./ContentTypes";
+import {UPDATE_USER_EMAIL} from "./ContentTypes";
+import {UPDATE_USER_ADDRESS} from "./ContentTypes";
+import {UPDATE_USER_PHONE_NUMBER} from "./ContentTypes";
+import {UPDATE_USER_EDUCATION} from "./ContentTypes";
+import {UPDATE_USER_EXPERIENCE} from "./ContentTypes"
 
 const initialState = {
     userName: "",
@@ -11,6 +16,7 @@ const initialState = {
 }
 
 const contentReducer = (state = initialState,action) => {
+    console.log(state)
     switch (action.type){
         case UPDATE_USER_NAME: return{
             ...state,
@@ -28,7 +34,7 @@ const contentReducer = (state = initialState,action) => {
             ...state,
             userPhoneNumber: action.payload
         }
-        case UPDATE_EDUCATION: return{
+        case UPDATE_USER_EDUCATION: return{
             ...state,
             userEducation: [...state.userEducation, action.payload]
         }
@@ -36,5 +42,9 @@ const contentReducer = (state = initialState,action) => {
             ...state,
             userExperience: [...state.userExperience, action.payload]
         }
+        default: return state;
     }
+    
 }
+
+export default contentReducer;
