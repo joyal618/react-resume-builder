@@ -5,7 +5,7 @@ import "./NavBar.css";
 function NavBar() {
     return (
         <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">Resume Bilder</Navbar.Brand>
+            <Navbar.Brand href="#home">Resume Builder</Navbar.Brand>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link href="#home">Create</Nav.Link>
