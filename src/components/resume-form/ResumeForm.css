@@ -8,6 +8,7 @@
     padding: 100px 50px;
     width: 700px;
     height: auto;
+    /* font-size:  15px; */
     background-color: silver;
 }
 
@@ -37,5 +38,22 @@
 
 #multipleInputContainer{
     margin-bottom: 50px;
+}
+
+.form-control{
+    height:auto;
+}
+
+.border-0 {
+    background: none;
+    border: none;
+}
+
+.border-0:focus{
+    outline: none;
+}
+
+.badge:focus{
+    outline:none;
 }
 

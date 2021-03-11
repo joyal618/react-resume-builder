@@ -13,7 +13,8 @@ import { removeUserEducation } from '../../redux';
 import { removeUserExperience } from '../../redux';
 import { connect } from 'react-redux';
 import ResumeTemplate from "../resume-template/ResumeTemplate"
-
+import { InputTags } from 'react-bootstrap-tagsinput'
+// import 'react-bootstrap-tagsinput/dist/index.css'
 
 function ResumeForm(props) {
 
@@ -21,7 +22,7 @@ function ResumeForm(props) {
     const [customEducationDiv, setCustomEducationDiv] = useState(['div1']);
     const [showExperienceRemoveButton, setShowExperienceRemoveButton] = useState(false);
     const [showEducationRemoveButton, setShowEducationRemoveButton] = useState(false);
-
+    const [skillSet, setSkillSet] = useState([]);
 
     const addNewEducation = () => {
         props.addUserEducation();
@@ -153,15 +154,9 @@ function ResumeForm(props) {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicSkillSets">
-                        <Form.Control>
-                            {/* <select multiple data-role="tagsinput">
-                                <option value="Amsterdam">Amsterdam</option>
-                                <option value="Washington">Washington</option>
-                                <option value="Sydney">Sydney</option>
-                                <option value="Beijing">Beijing</option>
-                                <option value="Cairo">Cairo</option>
-                            </select> */}
-                        </Form.Control>
+                        <InputTags placeholder="Enter Your skills" id = "skills-input" values={skillSet} onTags={(skillSet) => setSkillSet(skillSet.values)} onKeyPress={(e) => { 
+                            e.key === 'Enter' && e.preventDefault(); 
+                        }}/>
                     </Form.Group>
 
                     <Button variant="primary" type="submit">
