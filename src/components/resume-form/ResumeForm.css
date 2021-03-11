@@ -1,7 +1,13 @@
+.edit-resume-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .form-container {
     padding: 100px 50px;
     width: 700px;
-    heigth: auto;
+    height: auto;
     background-color: silver;
 }
 
@@ -13,6 +19,14 @@
 #add-button{
     float: right;
 }
+
+#remove-button{
+    float: right;
+    margin-left: 20px;
+    background-color: red;
+    color: white;
+}
+
 #formBasicEducation{
     margin-bottom: 20px;
 }
@@ -24,3 +38,4 @@
 #multipleInputContainer{
     margin-bottom: 50px;
 }
+

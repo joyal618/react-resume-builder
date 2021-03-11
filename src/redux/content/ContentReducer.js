@@ -1,50 +1,101 @@
-import {UPDATE_USER_NAME} from "./ContentTypes";
-import {UPDATE_USER_EMAIL} from "./ContentTypes";
-import {UPDATE_USER_ADDRESS} from "./ContentTypes";
-import {UPDATE_USER_PHONE_NUMBER} from "./ContentTypes";
-import {UPDATE_USER_EDUCATION} from "./ContentTypes";
-import {UPDATE_USER_EXPERIENCE} from "./ContentTypes"
+import { UPDATE_USER_NAME } from "./ContentTypes";
+import { UPDATE_USER_EMAIL } from "./ContentTypes";
+import { UPDATE_USER_ADDRESS } from "./ContentTypes";
+import { UPDATE_USER_PHONE_NUMBER } from "./ContentTypes";
+import { UPDATE_USER_EDUCATION } from "./ContentTypes";
+import { UPDATE_USER_EXPERIENCE } from "./ContentTypes";
+import { ADD_USER_EDUCATION } from "./ContentTypes";
+import { ADD_USER_EXPERIENCE } from "./ContentTypes";
+import { REMOVE_USER_EDUCATION } from "./ContentTypes";
+import { REMOVE_USER_EXPERIENCE } from "./ContentTypes";
+
 
 const initialState = {
     userName: "",
     userEmail: "",
-    userAddress:"",
+    userAddress: "",
     userPhoneNumber: "",
-    userEducation: [{institueName:"",passOutYear:"", degree:""}],
-    userExperience: [{companyName: "", numberOfYears: "", designation:""}],
-
+    userEducation: [{ institueName: "", passOutYear: "", degree: "" }],
+    userExperience: [{ companyName: "", numberOfYears: "", designation: "" }],
 }
 
-const contentReducer = (state = initialState,action) => {
-    console.log(state)
-    switch (action.type){
-        case UPDATE_USER_NAME: return{
+const contentReducer = (state = initialState, action) => {
+    let name = action.name;
+    let key = action.key;
+    switch (action.type) {
+        case UPDATE_USER_NAME: return {
             ...state,
-            userName: action.payload
+            userName: action.payload,
         }
-        case UPDATE_USER_EMAIL: return{
+
+        case UPDATE_USER_EMAIL: return {
             ...state,
-            userEmail: action.payload
+            userEmail: action.payload,
         }
-        case UPDATE_USER_ADDRESS: return{
+
+        case UPDATE_USER_ADDRESS: return {
             ...state,
-            userAddress: action.payload
+            userAddress: action.payload,
         }
-        case UPDATE_USER_PHONE_NUMBER: return{
+
+        case UPDATE_USER_PHONE_NUMBER: return {
             ...state,
-            userPhoneNumber: action.payload
+            userPhoneNumber: action.payload,
         }
-        case UPDATE_USER_EDUCATION: return{
+
+        case UPDATE_USER_EDUCATION:
+            const userEducation = state.userEducation.map((each, i) => {
+                if (i === key) {
+                    each[name] = action.payload;
+                }
+                return each
+            });
+            return {
+                ...state,
+                userEducation: userEducation,
+            }
+
+        case UPDATE_USER_EXPERIENCE: return {
             ...state,
-            userEducation: [...state.userEducation, action.payload]
+            userExperience: [...state.userExperience, action.payload],
         }
-        case UPDATE_USER_EXPERIENCE: return{
-            ...state,
-            userExperience: [...state.userExperience, action.payload]
-        }
+
+        case ADD_USER_EDUCATION:
+            const userEducationCopy = [...state.userEducation];
+            userEducationCopy.push({ institueName: "", passOutYear: "", degree: "" })
+            console.log(userEducationCopy);
+            return {
+                ...state,
+                userEducation: userEducationCopy,
+            }
+
+        case ADD_USER_EXPERIENCE:
+            const userExperienceCopy = [...state.userExperience];
+            userExperienceCopy.push({ companyName: "", numberOfYears: "", designation: "" })
+            return {
+                ...state,
+                userExperience: userExperienceCopy,
+            }
+
+        case REMOVE_USER_EDUCATION:
+            const userEducationCpy = [...state.userEducation];
+            userEducationCpy.pop();
+            console.log(userEducationCpy)
+            return {
+                ...state,
+                userEducation: userEducationCpy,
+            }
+
+        case REMOVE_USER_EXPERIENCE:
+            const userExperienceCpy = [...state.userExperience];
+            userExperienceCpy.pop();
+            console.log(userExperienceCpy)
+            return {
+                ...state,
+                userExperience: userExperienceCpy,
+            }
         default: return state;
     }
-    
 }
 
 export default contentReducer;
