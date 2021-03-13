@@ -6,6 +6,7 @@ import {UPDATE_USER_EDUCATION} from "./ContentTypes";
 import {UPDATE_USER_EXPERIENCE} from "./ContentTypes";
 import {ADD_USER_EDUCATION} from "./ContentTypes";
 import {ADD_USER_EXPERIENCE} from "./ContentTypes";
+import {ADD_USER_SKILLS} from "./ContentTypes";
 import {REMOVE_USER_EDUCATION} from "./ContentTypes";
 import {REMOVE_USER_EXPERIENCE} from "./ContentTypes";
 
@@ -37,8 +38,7 @@ export const updateUserPhoneNumber = (payload) => {
     }
 }
 
-export const updateUserEducation = (key,name,payload) => {
-    console.log(name)
+export const updateUserEducation = (key,payload,name) => {
     return {
         type: UPDATE_USER_EDUCATION,
         key,
@@ -47,7 +47,7 @@ export const updateUserEducation = (key,name,payload) => {
     }
 }
 
-export const updateUserExperience = (key,name,payload) => {
+export const updateUserExperience = (key,payload,name) => {
     return {
         type: UPDATE_USER_EXPERIENCE,
         key,
@@ -68,6 +68,13 @@ export const addUserEducation = () => {
     return{
         type: ADD_USER_EDUCATION,
     }   
+}
+
+export const addUserSkills = (payload) => {
+    return {
+        type: ADD_USER_SKILLS,
+        payload,
+    }
 }
 
 export const removeUserEducation = () => {

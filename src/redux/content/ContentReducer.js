@@ -6,6 +6,7 @@ import { UPDATE_USER_EDUCATION } from "./ContentTypes";
 import { UPDATE_USER_EXPERIENCE } from "./ContentTypes";
 import { ADD_USER_EDUCATION } from "./ContentTypes";
 import { ADD_USER_EXPERIENCE } from "./ContentTypes";
+import { ADD_USER_SKILLS } from "./ContentTypes";
 import { REMOVE_USER_EDUCATION } from "./ContentTypes";
 import { REMOVE_USER_EXPERIENCE } from "./ContentTypes";
 
@@ -17,6 +18,7 @@ const initialState = {
     userPhoneNumber: "",
     userEducation: [{ institueName: "", passOutYear: "", degree: "" }],
     userExperience: [{ companyName: "", numberOfYears: "", designation: "" }],
+    userSkills: [],
 }
 
 const contentReducer = (state = initialState, action) => {
@@ -49,21 +51,28 @@ const contentReducer = (state = initialState, action) => {
                     each[name] = action.payload;
                 }
                 return each
-            });
+            })
             return {
                 ...state,
                 userEducation: userEducation,
             }
 
-        case UPDATE_USER_EXPERIENCE: return {
-            ...state,
-            userExperience: [...state.userExperience, action.payload],
-        }
+        case UPDATE_USER_EXPERIENCE:
+            const userExperience = state.userExperience.map((each, i) => {
+                if (i === key) {
+                    each[name] = action.payload;
+                }
+                return each
+            })
+            return {
+                ...state,
+                userExperience: userExperience,
+            }
+
 
         case ADD_USER_EDUCATION:
             const userEducationCopy = [...state.userEducation];
             userEducationCopy.push({ institueName: "", passOutYear: "", degree: "" })
-            console.log(userEducationCopy);
             return {
                 ...state,
                 userEducation: userEducationCopy,
@@ -71,16 +80,25 @@ const contentReducer = (state = initialState, action) => {
 
         case ADD_USER_EXPERIENCE:
             const userExperienceCopy = [...state.userExperience];
-            userExperienceCopy.push({ companyName: "", numberOfYears: "", designation: "" })
+            userExperienceCopy.push({ companyName: "", numberOfYears: "", designation: "" });
             return {
                 ...state,
                 userExperience: userExperienceCopy,
             }
 
+        case ADD_USER_SKILLS:
+            const userSkillsCopy = [...state.userSkills];
+            console.log(action.payload)
+            if (action.payload !== undefined)
+                userSkillsCopy.push(action.payload);
+            return {
+                ...state,
+                userSkills: userSkillsCopy,
+            }
+
         case REMOVE_USER_EDUCATION:
             const userEducationCpy = [...state.userEducation];
             userEducationCpy.pop();
-            console.log(userEducationCpy)
             return {
                 ...state,
                 userEducation: userEducationCpy,
@@ -89,7 +107,6 @@ const contentReducer = (state = initialState, action) => {
         case REMOVE_USER_EXPERIENCE:
             const userExperienceCpy = [...state.userExperience];
             userExperienceCpy.pop();
-            console.log(userExperienceCpy)
             return {
                 ...state,
                 userExperience: userExperienceCpy,
