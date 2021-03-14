@@ -1,3 +1,17 @@
+.pdf-button-container{
+    display:flex;
+    flex-direction: column;
+}
+
+.svg-inline--fa{
+    font-size:40px;
+    color: red;
+    float:right;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
 .resume-template-main-container {
     width: 8.25in;
     height: 11.75in;

@@ -1,26 +1,21 @@
 import React from 'react';
 import "./Home.css";
-// import NavBar from "../nav-bar/NavBar";
-import ResumeForm from "../resume-form/ResumeForm";
-// import ResumeTemplate from "../resume-template/ResumeTemplate"
-
+import NavBar from "../nav-bar/NavBar";
+import coverImage from "../../assets/coverimage.jpg";
 
 
 function Home(props) {
-
-  // const TemplateHandler = useRef();
-  // const onButtonClick = () => {
-  //   // `current` points to the mounted text input element
-  //   TemplateHandler.current.onFormChange();
-  // };
-
   return (
-    <div className="Home">
-      {/* <NavBar /> */}
-      <ResumeForm />
+    <div className="home">
+      <NavBar id="home"/>
+      <div className="cover-image-container" style={{ backgroundImage: `url(${coverImage})` }}>
+        <div className="caption-container">
+          <h1>inscribe</h1>
+          <h3>KEEP IT SIMPLE AND ELEGANT</h3>
+        </div>
+      </div>
 
-      {/* <ResumeTemplate ref={TemplateHandler}/> */}
-      {/* <button onClick={onButtonClick}>Focus the input</button> */}
+
     </div>
   );
 }

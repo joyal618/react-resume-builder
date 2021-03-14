@@ -87,10 +87,7 @@ const contentReducer = (state = initialState, action) => {
             }
 
         case ADD_USER_SKILLS:
-            const userSkillsCopy = [...state.userSkills];
-            console.log(action.payload)
-            if (action.payload !== undefined)
-                userSkillsCopy.push(action.payload);
+            const userSkillsCopy = action.payload;
             return {
                 ...state,
                 userSkills: userSkillsCopy,
