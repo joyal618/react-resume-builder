@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Home from './components/home/Home';
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/Store";
 import ResumeForm from "../src/components/resume-form/ResumeForm";
@@ -12,11 +12,11 @@ function App() {
 
     <div className="main-container">
       <Provider store={store}>
-        <BrowserRouter>
+        <HashRouter>
           <Route exact path="/" component={Home} />
           <Route exact path="/create-resume" component={ResumeForm}/>
           <Route exact path="/view-resume" component={ViewResume} />
-        </BrowserRouter>
+        </HashRouter>
       </Provider>
     </div>
 
