@@ -6,6 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+###demo run
+Run a demo of the application by click on this link https://joyal618.github.io/react-resume-builder/#/create-resume
+
 ### `npm start`
 
 Runs the app in the development mode.\
