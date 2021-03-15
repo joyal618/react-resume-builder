@@ -42,7 +42,6 @@ function ResumeForm(props) {
         setShowExperienceRemoveButton(true);
         let cDivs = [...customExperienceDiv, "newDiv"];
         setCustomExperienceDiv(cDivs);
-        console.log(customExperienceDiv)
     }
 
     const removeEducation = () => {
@@ -109,7 +108,7 @@ function ResumeForm(props) {
                                     <Form.Control value={props.state.userEducation[i].institueName} type="text" placeholder="Enter Institute Name" name="institueName" onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault() }} onChange={(e) => {
                                         props.updateUserEducation(i, e.target.value, e.target.name);
                                     }} />
-                                    <Form.Control value={props.state.userEducation[i].passOutYear} type="text" placeholder="Enter Pass Out Year" name="passOutYear" onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault() }} onChange={(e) => {
+                                    <Form.Control value={props.state.userEducation[i].passOutYear} type="text" placeholder="Enter Pass Out Year" name="passOutYear" onChange={(e) => {
                                         props.updateUserEducation(i, e.target.value, e.target.name);
                                     }} />
                                     <Form.Control value={props.state.userEducation[i].degree} type="text" placeholder="Enter Degree" name="degree" onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault() }} onChange={(e) => {
@@ -120,7 +119,6 @@ function ResumeForm(props) {
                             }
 
                             {showEducationRemoveButton && (<button id="remove-button"
-                                onKeyPress={(e) => { e.key === 'Enter' && console.log("edu rem") }}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     removeEducation();
