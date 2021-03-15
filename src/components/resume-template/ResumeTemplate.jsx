@@ -20,7 +20,7 @@ function ResumeTemplate(details) {
         <div className="pdf-button-container">
             {details.id ==="view" && 
             <Pdf targetRef={ref} filename="resume.pdf">
-                {({ toPdf }) =><i onClick={toPdf} aria-hidden="true">{pdf}</i>}
+                {({ toPdf }) =><i id="pdf-icon" onClick={toPdf} aria-hidden="true">{pdf}</i>}
             </Pdf>}
             <div ref={ref} className='resume-template-main-container'>
 
