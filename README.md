@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ###Demo Run: 
-Run a demo of the application by click on this link https://joyal618.github.io/react-resume-builder/
+Run a demo of the application by clicking on this link https://joyal618.github.io/react-resume-builder/
 
 
 ## Available Scripts
